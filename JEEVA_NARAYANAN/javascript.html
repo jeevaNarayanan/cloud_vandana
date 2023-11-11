@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Words</title>
+</head>
+<body>
+
+<script>
+function reverseWordsWithoutBuiltInFunctions(sentence) {
+    function reverseString(str) {
+        var reversed = '';
+        for (var i = str.length - 1; i >= 0; i--) {
+            reversed += str[i];
+        }
+        return reversed;a
+    }
+
+    var reversedSentence = '';
+    var currentWord = '';
+
+    for (var i = 0; i < sentence.length; i++) {
+        if (sentence[i] !== ' ') {
+            currentWord += sentence[i];
+        } else {
+            reversedSentence += reverseString(currentWord) + ' ';
+            currentWord = '';
+        }
+    }
+
+    reversedSentence += reverseString(currentWord);
+
+    return reversedSentence;
+}
+
+var userInput = prompt("Enter a sentence:");
+
+var reversedOutput = reverseWordsWithoutBuiltInFunctions(userInput);
+document.write("<p>Original sentence: " + userInput + "</p>");
+document.write("<p>Reversed sentence: " + reversedOutput + "</p>");
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Array in Descending Order</title>
+</head>
+<body>
+
+<script>
+function sortArrayDescending(inputArray) {
+
+    for (var i = 0; i < inputArray.length - 1; i++) {
+        for (var j = 0; j < inputArray.length - i - 1; j++) {
+            if (inputArray[j] < inputArray[j + 1]) {
+        
+                var temp = inputArray[j];
+                inputArray[j] = inputArray[j + 1];
+                inputArray[j + 1] = temp;
+            }
+        }
+    }
+
+    return inputArray;
+}
+
+
+var userInput = prompt("Enter an array of numbers (comma-separated):");
+var inputArray = userInput.split(',').map(function(item) {
+    
+    return parseFloat(item);
+});
+
+
+var sortedArray = sortArrayDescending(inputArray);
+document.write("<p>Original array: " + inputArray + "</p>");
+document.write("<p>Sorted array (descending order): " + sortedArray + "</p>");
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
